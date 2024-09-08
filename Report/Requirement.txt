@@ -1,0 +1,28 @@
+Project Setup: 
+
+Four major Races are selected which constitute more than 95% of female population(Lower Bound). 
+a. White alone, not Hispanic or Latino
+b. Hispanic or Latino origin (of any race)
+c. Asian
+d. Black or African American
+
+
+Variables:
+
+For 2010 Only:
+	
+Variable ID 
+
+White_Fem_pop_2010	        S1301_C01_014E
+WhiteBirth_2010	            S1301_C02_014E
+Hispanic_Fem_pop_2010	    S1301_C01_013E
+HispanicBirth-2010	        S1301_C02_013E
+Asian_Femal_pop_2010	    S1301_C01_009E
+AsianBirth_2010	            S1301_C02_009E
+African_AM_FemPop_2010	    S1301_C01_007E
+AfAmBirth_2010	            S1301_C02_007E
+Female_pop_2010	            S1301_C01_001E
+Birth_2010	                S1301_C02_001E
+
+
+

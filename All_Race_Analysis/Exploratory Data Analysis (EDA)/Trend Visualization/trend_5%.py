@@ -3,11 +3,9 @@
 
 import pandas as pd
 
-# Load the dataset
 file_path = r"C:\Users\Rudra\Desktop\CENSUS_PROJECT_WOMEN\All_Race_Analysis\3_processed_data\processed_data3.csv"
 df = pd.read_csv(file_path)
 
-# Calculate percentage changes year-on-year for population and births
 df["WFP_Perc_Change"] = df["White_Female_Pop"].pct_change() * 100
 df["WB_Perc_Change"] = df["White_Births"].pct_change() * 100
 df["HFP_Perc_Change"] = df["Hispanic_Female_Pop"].pct_change() * 100
@@ -17,7 +15,6 @@ df["AB_Perc_Change"] = df["Asian_Births"].pct_change() * 100
 df["AAFP_Perc_Change"] = df["African_American_Female_Pop"].pct_change() * 100
 df["AAB_Perc_Change"] = df["African_American_Births"].pct_change() * 100
 
-# Highlight significant changes (e.g., >5% change)
 significant_threshold = 5
 significant_years = df[
     (df["WFP_Perc_Change"].abs() > significant_threshold)
@@ -29,8 +26,6 @@ significant_years = df[
     | (df["AAFP_Perc_Change"].abs() > significant_threshold)
     | (df["AAB_Perc_Change"].abs() > significant_threshold)
 ]
-
-# Print significant years
 print("Years with significant population or birth rate changes:")
 print(
     significant_years[
@@ -47,5 +42,4 @@ print(
         ]
     ]
 )
-
 # significant_years.to_csv("significance_5%_change.csv", index=False)

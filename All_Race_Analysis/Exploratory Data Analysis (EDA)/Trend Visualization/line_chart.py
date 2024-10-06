@@ -1,14 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
 file_path = r"C:\Users\Rudra\Desktop\CENSUS_PROJECT_WOMEN\All_Race_Analysis\3_processed_data\processed_data3.csv"
 data = pd.read_csv(file_path)
 
-
 data["Year"] = pd.to_datetime(data["Year"], format="%Y")
 data.set_index("Year", inplace=True)
-
 
 plt.figure(figsize=(14, 8))
 

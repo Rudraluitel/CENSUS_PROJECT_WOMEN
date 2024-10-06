@@ -1,12 +1,12 @@
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+import plotly.express as px
 
-data = pd.read_csv(
+# Load your data
+df = pd.read_csv(
     r"C:\Users\Rudra\Desktop\CENSUS_PROJECT_WOMEN\White_Fertility\4_final_data\data_without_year123.csv"
 )
 
-correlation_variables = [
+columns_for_correlation = [
     "white_Births_15_50",
     "Female_Pop_15_50",
     "white_Female_Pop_15_50",
@@ -46,8 +46,6 @@ correlation_variables = [
     "owner_occupied_1.51_2_occupants",
     "owner_occupied_2plus_occupants",
     "renter_occupied_1.01_1.50_occupants",
-    "renter_occupied_1.01_1.50_occupants",
-    "renter_occupied_1.01_1.50_occupants",
     "white_female_civilian_employed",
     "white_female_management_employed",
     "white_female_service_employed",
@@ -56,30 +54,25 @@ correlation_variables = [
     "white_female_production_employed",
 ]
 
-new_data = data[correlation_variables]
-
+new_data = df[columns_for_correlation]
 
 correlation = new_data.corr()
 
-
-plt.figure(figsize=(14, 10))
-heatmap = sns.heatmap(
+fig = px.imshow(
     correlation,
-    annot=True,
-    fmt=".2f",
-    cmap="coolwarm",
-    linewidths=0.3,
-    vmin=-1,
-    vmax=1,
-    cbar_kws={"shrink": 0.1},
-    annot_kws={"size": 4},
+    text_auto=True,
+    labels=dict(x="Variables", y="Variables", color="Correlation"),
+    color_continuous_scale="RdBu_r",
+    zmin=-1,
+    zmax=1,
+    aspect="auto",
 )
 
-plt.title("Correlation of White Births (15-50) with Other Variables", fontsize=16)
-plt.xticks(rotation=90, fontsize=5)
-plt.yticks(rotation=0, fontsize=5)
+fig.update_layout(
+    title="Correlation of White Births (15-50) with Other Variables",
+    xaxis_nticks=36,
+    width=1200,
+    height=900,
+)
 
-plt.tight_layout()
-plt.show()
-
-# correlation.to_csv("correlation_matrix.csv")
+fig.show()

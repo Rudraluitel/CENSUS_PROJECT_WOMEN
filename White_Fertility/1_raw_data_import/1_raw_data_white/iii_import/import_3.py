@@ -50,7 +50,7 @@ column_name = {
 
 all_years_data = []
 
-for year in range(2012, 2023):  #  2010 to 2012(acs1) and 2013 to 2022 (acs5)
+for year in range(2022, 2024):  #  2010 to 2012(acs1) and 2013 to 2022 (acs5)
     print(f"Fetching data for year {year}...")
 
     url = f'https://api.census.gov/data/{year}/acs/acs5?get=NAME,{",".join(variables)}&for=us:1&key={api_key}'
@@ -79,4 +79,4 @@ if all_years_data:
 else:
     print("No data fetched for any year.")
 
-print(all_years_data.head())
+print(all_years_data.tail())

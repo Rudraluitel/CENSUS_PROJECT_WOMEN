@@ -17,7 +17,6 @@ df["African_American_Ratio"] = (
 df["Other_Ratio"] = df["Other_Total_Births"] / df["Other_Total_Pop"]
 df["Total_Ratio"] = df["Total_Births"] / df["Total_Female_Pop"]
 
-
 ratio_df = df[
     [
         "Year",

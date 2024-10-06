@@ -1,9 +1,9 @@
 import requests
 import pandas as pd
 
-api_key = "98bafc056250a129981d09211487ed2349f909f5"
-base_url_template_acs1 = "https://api.census.gov/data/{year}/acs/acs1/subject"
-base_url_template_acs5 = "https://api.census.gov/data/2020/acs/acs5/subject"
+api = "98bafc056250a129981d09211487ed2349f909f5"
+url_acs1 = "https://api.census.gov/data/{year}/acs/acs1/subject"
+url_acs5 = "https://api.census.gov/data/2020/acs/acs5/subject"
 
 variables = [
     "S1301_C02_014E",
@@ -59,20 +59,20 @@ column_name = {
     "S1903_C02_010E": "med_income_white",  # "S1903_C03_010E" from 2017 onwards
 }
 
-all_data = pd.DataFrame()
+new_data1 = pd.DataFrame()
 
-for year in range(2010, 2022 + 1):
+for year in range(2010, 2023 + 1):
     print(f"Retrieving data for {year}...")
 
     if year == 2020:
-        base_url = base_url_template_acs5
+        base_url = url_acs5
     else:
-        base_url = base_url_template_acs1.format(year=year)
+        base_url = url_acs1.format(year=year)
 
     params = {
         "get": ",".join(variables),
         "for": "us:1",
-        "key": api_key,
+        "key": api,
     }
 
     response = requests.get(base_url, params=params)
@@ -83,13 +83,13 @@ for year in range(2010, 2022 + 1):
         continue
 
     column = data[0]
-    df = pd.DataFrame(data[1:], columns=column)
+    new_data2 = pd.DataFrame(data[1:], columns=column)
 
-    df.rename(columns=column_name, inplace=True)
-    df["Year"] = year
+    new_data2.rename(columns=column_name, inplace=True)
+    new_data2["Year"] = year
 
-    all_data = pd.concat([all_data, df], ignore_index=True)
+    final_data = pd.concat([new_data1, new_data2], ignore_index=True)
 
 
-# all_data.to_csv("import_1_data.csv", index=False)
-print(all_data.tail())
+# new_data1.to_csv("import_1_data.csv", index=False)
+print(final_data.tail())

@@ -43,9 +43,7 @@ plt.grid(True)
 plt.show()
 
 target_variance = 0.92
-num_components = (
-    cumulative_explained_variance <= target_variance
-).sum() + 1  # +1 to include the component that exceeds the threshold
+num_components = (cumulative_explained_variance <= target_variance).sum() + 1
 
 print(
     f"\nNumber of components to explain {target_variance*100}% variance: {num_components}"

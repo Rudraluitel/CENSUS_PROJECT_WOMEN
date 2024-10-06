@@ -3,12 +3,12 @@
 
 ## Overview
 
-This project explores the decline in the fertility rates among White women (15 to 50 yrs) in the United States, focusing on the period from 2010 to 2022. The aim is to identify the factors contributing this decline and evaluate how different demographic and socio-economic factors impact White fertility rates.<u>We also aim to forecast the White birth for next 5 years using time series model</u>. This research uses data sourced from the __American Community Survey(ACS)__ 1-year estimates.    
+This project explores the decline in the fertility rates among White women (15 to 50 yrs) in the United States, focusing on the period from 2010 to 2022. The aim is to identify the factors contributing this decline and evaluate how different demographic and socio-economic factors impact White fertility rates.<u>We also aim to forecast the White birth for next 5 years using time series model</u>. This research uses data sourced from the __American Community Survey(ACS)__ 1-year estimates.  
 
 ## Problem Statement
 
-The U.S. has experienced a notable decline in birth rates. Although, White women represent a significant portion of the population, white women birth to population ratio is lowest compared to Asian, Hispanic or Latino and African American race. we will try to understand the factors that contribute to the reduction in fertility among this group. In this project , we focus on understanding the dynamics behind this decline and aim to answer key questions:
-    
+The U.S. has experienced a notable decline in birth rates. Although, White women represent a significant portion of the population, white women birth to population ratio is lowest compared to Asian, Hispanic or Latino and African American race. we will try to understand the factors that contribute to the reduction in fertility among this group. In this project , we focus on understanding the dynamics behind this decline and aim to answer key questions: 
+
      1. How does White birth ratio compare to other racial groups?
      2. What factors contribute to the decline in white fertility rates? 
      3. 
@@ -130,3 +130,7 @@ The key objectives of this project are:
 
       
 ## Results
+
+Population-to-Birth Ratio by Race (2010-2022)
+
+The above plot shows the Population-to-Birth Ratio across different races over the study period. The most significant decline is observed in the White population, whereas Hispanic and African American populations show a higher ratio throughout.

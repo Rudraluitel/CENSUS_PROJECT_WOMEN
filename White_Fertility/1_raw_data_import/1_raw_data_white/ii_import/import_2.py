@@ -21,14 +21,14 @@ column_name = {
     "B23001_128E": "female_white_35_44_employed",
     "B25058_001E": "median_rent",
 }
-all_years_data = []
+new_data1 = []
 
-for year in range(2020, 2021):
+for year in range(2020, 2024):
     print(f"Fetching data for year {year}...")
 
     acs = "acs1" if year != 2020 else "acs5"
 
-    url = f'https://api.census.gov/data/{year}/acs/acs5?get=NAME,{",".join(variables)}&for=us:1&key={api_key}'
+    url = f'https://api.census.gov/data/{year}/acs/acs1?get=NAME,{",".join(variables)}&for=us:1&key={api_key}'
 
     response = requests.get(url)
 
@@ -40,18 +40,18 @@ for year in range(2020, 2021):
             df = pd.DataFrame(data[1:], columns=data[0])
             df["Year"] = year
             df.rename(columns=column_name, inplace=True)
-            all_years_data.append(df)
+            new_data1.append(df)
         except ValueError:
             print(f"Could not parse the data for year {year}. Skipping this year.")
     else:
         print(f"Failed to fetch data for year {year}. Skipping this year.")
 
-if all_years_data:
-    final_df = pd.concat(all_years_data, ignore_index=True)
+if new_data1:
+    final_df = pd.concat(new_data1, ignore_index=True)
 
     print(final_df)
     # final_df.to_csv("import_2b_data.csv", index=False)
 else:
     print("No data fetched for any year.")
 
-print(all_years_data.head())
+print(new_data1.head())

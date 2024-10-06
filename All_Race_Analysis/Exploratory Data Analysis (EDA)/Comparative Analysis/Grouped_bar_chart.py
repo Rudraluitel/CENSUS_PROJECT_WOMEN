@@ -8,7 +8,6 @@ df = pd.read_csv(
     r"C:\Users\Rudra\Desktop\CENSUS_PROJECT_WOMEN\All_Race_Analysis\3_processed_data\processed_data3.csv"
 )
 
-
 df["White_Ratio"] = df["White_Births"] / df["White_Female_Pop"]
 df["Hispanic_Ratio"] = df["Hispanic_Births"] / df["Hispanic_Female_Pop"]
 df["Asian_Ratio"] = df["Asian_Births"] / df["Asian_Female_Pop"]
@@ -17,7 +16,6 @@ df["African_American_Ratio"] = (
 )
 df["Other_Ratio"] = df["Other_Total_Births"] / df["Other_Total_Pop"]
 df["Total_Ratio"] = df["Total_Births"] / df["Total_Female_Pop"]
-
 
 ratio_df = df[
     [
